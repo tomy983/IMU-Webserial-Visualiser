@@ -36,25 +36,8 @@ async function listenToPort() {
     // Listen to data coming from the serial device.
     while (true) {
         const { value, done } = await reader.read();
-        if (done) {
-            // Allow the serial port to be closed later.
-            //reader.releaseLock();
-            break;
-        }
         // value is a string.
-        if (value != "\n") {
-            appendToTerminal(value);
-            /*
-            if (value.substr(0,5) == "Quat:") {
-                var Quat = value.substr(6,value.length-4).trim().split(",");
-                console.log(value.substring(6,value.length-3));
-                console.log(Quat);
-            } else {
-                console.log("missed");
-            
-            }
-            */
-        }
+        appendToTerminal(value);
     }
 }
 
@@ -66,8 +49,6 @@ async function appendToTerminal(newStuff) {
 
     //scroll down to bottom of div
     serialResultsDiv.scrollTop = serialResultsDiv.scrollHeight;
-
-    
 }
 
 function scrollHistory(direction) {
