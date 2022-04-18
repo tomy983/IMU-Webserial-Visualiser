@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="css/style.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fastest Serial terminal in your browser for Chrome.</title>
+<meta name="Description" content="Set your baud speed and hit connect.
+ A serial terminal that runs with out any plugins in chrome.">
+
+<header class="header">
+    Web serial terminal
+</header>
+
+<button onclick="connectSerial()">Connect</button>
+Baud:
+<input type="text" id="baud" list="baudList" style="width: 10ch;" onclick="this.value = ''"
+    onchange="localStorage.baud = this.value">
+    <datalist id="baudList">
+        <option value="9600">9600</option>
+        <option value="38400">38400</option>
+        <option value="57600">57600</option>
+        <option value="115200">115200</option>
+        <option value="256000">256000</option>
+        <option value="1000000">1000000</option>
+        <option value="2000000">2000000</option>
+        <option value="3400000">3400000</option>
+    </datalist>
+<input type="text" id="lineToSend" style="width:calc(100% - 156px)">
+
+<button onclick="sendSerialLine()">Send</button>
+<button onclick="serialResultsDiv.innerHTML = '';">Clear</button>
+
+<div id="serialResults">
+</div>
+
+<script type="text/javascript" src="js/serial.js"></script>
