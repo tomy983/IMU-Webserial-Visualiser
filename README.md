@@ -1,8 +1,9 @@
-
+# Instructions
 
 # Credits
-This code was modified from 
-Access the original webserial terminal:
+This code was modified from Mike Molinari's serialTerminal.com: https://github.com/mmiscool/serialTerminal.com
+
+Access the original webserial terminal here:
 1) Load https://www.serialterminal.com
 2) Set baud speed from drop down.
 3) click connect.
