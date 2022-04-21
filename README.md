@@ -1,5 +1,6 @@
 # Vanilla webserial terminal
-Reskinned UI and refactored the original Mike Molinari's serialTerminal.com code. Instructions:
+Reskinned UI and refactored the original Mike Molinari's serialTerminal.com code. Added ability to save CSV file and determine last full line, stored in "currentData". 
+### Instructions:
 1. Select baud rate.
 2. Choose buffer size for saving CSV (Optional).
 3. Click connect and choose COM port.
