@@ -9,7 +9,7 @@ Note: Choose a reasonable value for CSV buffer size: under 10^6.
 
 # IMU webserial visualiser
 IMU visualiser using quaternions. This is specifically made to visualise the BNO080. The code for USB and wireless streaming of data can  be found in: https://github.com/MengLinCoding/ESP32-data-stream-comparisons. Using Three.js, which is a WebGL wrapper, the animation performance can be improved and could possibly be used for multiple IMUs simultaneously. Judge the performance for yourself:
-https://user-images.githubusercontent.com/39476147/164896006-c1daddb0-5d84-46b6-a7f2-d4d93df0bfb4.mp4
+![IMU webserial visualiser demo](https://user-images.githubusercontent.com/39476147/164896534-4bb2da95-76af-4dce-a108-a90f1e6bf53a.gif)
 
 # Credits
 This code was modified from Mike Molinari's serialTerminal.com: https://github.com/mmiscool/serialTerminal.com
