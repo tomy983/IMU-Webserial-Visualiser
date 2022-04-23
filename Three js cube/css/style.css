@@ -1,0 +1,12 @@
+/*
+canvas {
+    background-color: rgb(255, 255, 255);
+    border: 3px solid;
+    border-color: #020202;
+    border-radius: 0.4rem;
+}*/
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
