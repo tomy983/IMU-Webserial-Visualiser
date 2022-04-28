@@ -3,52 +3,42 @@
 * {
     font-family: 'Roboto', monospace;
     color: #020202;
+    border-radius: 0.5rem;
     margin: 0.2rem;
-    border-radius: 0.4rem;
-    padding: 0.3rem;
 }
 
 body{
-    width: 90%;
-    height: 100%;
-    padding: 0rem;
-    border: 0rem;
+    padding: 0.5rem;
+    background: #ffffff;
+    margin: 0;
 }
 
-header {
-    margin-bottom: 0.5em;
-    padding: 1em;
-    text-align: center;
-    background: hsl(168, 76%, 45%);
-    color: #ffffff;
-    font-size: 2em;
-    font-weight: normal;
+#columnContainer {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 h5 {
     display: inline;
-    padding-right: 0em;
-    margin-right: 0em;
     font-weight: lighter;
+    padding: 0.3rem 0.3rem;
 }
 
 button,
 datalist {
+    padding: 0.3em 1em 0.3em 1em;
     background-color: rgb(255, 255, 255);
-    padding-left: 1em;
-    padding-right: 1em;
     border: 1px solid;
     border-color: hsl(168, 76%, 45%);
 }
 
 button:hover {
     background-color: hsl(168, 76%, 92%);
-    border-color: hsl(168, 76%, 45%);
 }
 
 input[type=text] {
-    color: #020202;
-    background-color: rgb(255, 255, 255);
+    padding: 0.3em 1em 0.3em 1em;
     border: 1px solid;
     border-color: #888888;
 }
@@ -58,33 +48,32 @@ input:hover[type=text] {
     border-color: #020202;
 }
 
-#serialResults {
-    font-family: 'Roboto', monospace;
-    white-space: pre;
-    width: calc(111% - 2.9rem);
-    height: 20%;
-    background-color: rgb(255, 255, 255);
-    padding: 1em;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    overflow-wrap: break-word;
+
+
+
+
+#settingGroup {
+    margin: 0;
+}
+
+#flexContainer {
+    margin: 0;
+    display: flex;
+}
+
+#lineToSend {
+    width: 100%;
+}
+
+
+
+
+
+#container {
+    height: 80vh;
     border: 3px solid;
-    border-color: #020202;
-    font-weight: lighter;
-    font-size: 0.9em;
 }
 
 canvas {
-    position: relative;
-    top: 0;
-    left: 0;
-    margin: 0rem;
-    padding: 0rem;
-}
-
-#container {
-    width: calc(111% - 1.2rem);
-    height: 500px;
-    border: 3px solid;
-    padding: 0rem;
+    margin: 0;
 }

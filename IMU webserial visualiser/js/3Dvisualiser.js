@@ -3,6 +3,7 @@ import '../css/style.css'
 
 
 
+
 // Setting up three js canvas
 import * as THREE from 'three';
 const scene = new THREE.Scene();
@@ -54,11 +55,12 @@ scene.add( new THREE.HemisphereLight( 0x443333, 0x111122 ) );
 addShadowedLight( 1, 1, 1, 0xffffff, 1.2 );
 addShadowedLight( 0.5, 1, - 1, 0xffccaa, 1 );
 addShadowedLight( -1, -0.5, -1, 0xccaa88, 1 );
+
 function addShadowedLight( x, y, z, color, intensity ) {
   const directionalLight = new THREE.DirectionalLight( color, intensity );
   directionalLight.position.set( x, y, z );
   scene.add( directionalLight );
-  directionalLight.castShadow = true;
+  //directionalLight.castShadow = true;
 }
 
 
@@ -116,7 +118,7 @@ function quat2Euler(q)
   const z2 = q[3]*q[3];
   const unitLength = w2 + x2 + y2 + z2;    // Normalised == 1, otherwise correction divisor.
   const abcd = q[0]*q[1] + q[2]*q[3];
-  const eps = 1e-7;
+  const eps = 1e-10;
   const pi = Math.PI;
   let yaw,pitch,roll;
   if (abcd > (0.5-eps)*unitLength)
