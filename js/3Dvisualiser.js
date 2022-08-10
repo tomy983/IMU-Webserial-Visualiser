@@ -30,10 +30,12 @@ renderer.shadowMap.enabled = true;
 // Autosize canvas
 let canvas = document.getElementById('bg');
 window.addEventListener('resize', onWindowResize, false)
+onWindowResize()
 function onWindowResize() {
-  camera.aspect = window.innerWidth / (window.innerHeight)
-  camera.updateProjectionMatrix()
-  renderer.setSize(window.innerWidth, window.innerHeight)
+  const container = document.getElementById('container');
+  camera.aspect = container.clientWidth/ container.clientHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize( container.clientWidth, container.clientHeight );
   renderer.render(scene, camera);
 }
 
@@ -85,19 +87,21 @@ plane.receiveShadow = true;
 
 // Defining geometries
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader'
+import cubeUrl from '../asset/xyzCalibrationCube.stl?url'
 const loader = new STLLoader();
 let IMUcube;
 loader.load(
-  '../asset/xyzCalibrationCube.stl',
+  cubeUrl,
   function (geometry) {
     geometry.center();
+    geometry.rotateZ( Math.PI/2);
     const material = new THREE.MeshPhongMaterial( { color: 0xaa8866, specular: 0x111111, shininess: 50 } );
     const mesh = new THREE.Mesh( geometry, material );
     IMUcube = mesh;
 
     mesh.position.set( 0, 0, 0 );
-    mesh.rotation.set( 0, 0, Math.PI/2 );
-    mesh.scale.set( -0.5, 0.5, 0.5 );
+    mesh.rotation.set( 0, 0, 0);
+    mesh.scale.set( 0.5, 0.5, 0.5 );
 
     mesh.castShadow = true;
     mesh.receiveShadow = true;
@@ -116,6 +120,7 @@ function quat2Euler(q)
   const x2 = q[1]*q[1];
   const y2 = q[2]*q[2];
   const z2 = q[3]*q[3];
+  //*/
   const unitLength = w2 + x2 + y2 + z2;    // Normalised == 1, otherwise correction divisor.
   const abcd = q[0]*q[1] + q[2]*q[3];
   const eps = 1e-10;
@@ -141,6 +146,7 @@ function quat2Euler(q)
     pitch = Math.asin(2*abcd/unitLength);
     roll = Math.atan2(2*acbd, 1 - 2*(y2+x2));
   }
+  //*/
   const eulerAngles = [-roll,pitch,-yaw];
 
   return eulerAngles;
@@ -150,25 +156,33 @@ function quat2Euler(q)
 
 
 
-// Show axes
-//scene.add(new THREE.AxesHelper(12));
-
-// Rendering and animate
+// Rendering and animate at set fps
+let clock = new THREE.Clock();
+let delta = 0;
+let interval = 1 / 60;
 function animate() {
 
-  if (IMUcube != null && window.currentData != null) {
-    let quat = window.currentData.slice(0,4);
-    const angles = quat2Euler(quat);
-    IMUcube.rotation.set(angles[0], angles[1], angles[2]);
-  }
-
-  const container = document.getElementById('container');
-  renderer.setSize( container.clientWidth, container.clientHeight );
-  camera.aspect = container.clientWidth/ container.clientHeight;
-  camera.updateProjectionMatrix();
-
-  controls.update();
-  renderer.render(scene, camera);
   requestAnimationFrame(animate);
+  delta += clock.getDelta();
+
+  if (delta  > interval) {
+
+    if (IMUcube != null) {
+      if (window.currentData != null){
+        let quat = window.currentData.slice(0,4);
+        const q = new THREE.Quaternion(quat[1], quat[2], quat[3], quat[0]);
+        IMUcube.rotation.setFromQuaternion(q);
+      }
+      else {
+        IMUcube.rotation.z += 0.01
+        IMUcube.rotation.y += 0.003
+        IMUcube.rotation.x += 0.001
+      }
+    }
+
+    controls.update();
+    renderer.render(scene, camera);
+    delta = delta % interval;
+  }
 }
 animate();

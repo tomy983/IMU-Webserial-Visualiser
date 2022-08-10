@@ -43,6 +43,7 @@
         <input type="text" id="csvBufferSize" style="width: 12ch;"
           onchange="if (this.value > terminalBufferLength) csvBufferSize = this.value">
         <button id="startStop" onclick="saveCSV()">Save</button>
+        <button onclick="clearBuffers()">Clear</button>
       </div>
 
 
@@ -50,7 +51,6 @@
       <div id="flexContainer">
         <input type="text" id="lineToSend">
         <button onclick="sendSerialLine()">Send</button>
-        <button onclick="clearBuffers()">Clear</button>
       </div>
 
 
@@ -60,7 +60,7 @@
 
 
 
-    <script type="module" src="js/3Dvisualiser.js"></script>
-    <script type="module" src="js/serial.js"></script>
+    <script type="module" src="/js/3Dvisualiser.js"></script>
+    <script type="module" src="/js/serial.js"></script>
   </body>
 </html>
