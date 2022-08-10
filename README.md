@@ -1,5 +1,5 @@
 # IMU webserial visualiser
-**IMU visualiser using QUATERNIONS**, made using Three.js and the experimental Web Serial API.The program is created using Vite. This is specifically made to visualise the BNO080. The code for USB and wireless streaming of data can  be found in: https://github.com/MengLinCoding/ESP32-data-stream-comparisons. Using Three.js, which is a WebGL wrapper, the animation performance can be improved and could possibly be used for multiple IMUs simultaneously. Judge the performance for yourself:
+**IMU visualiser using [QUATERNIONS](https://en.wikipedia.org/wiki/Quaternion)**, made using Three.js and the experimental Web Serial API.The program is created using Vite. This is specifically made to visualise the BNO080. The code for USB and wireless streaming of data can  be found in: https://github.com/MengLinCoding/ESP32-data-stream-comparisons. Using Three.js, which is a WebGL wrapper, the animation performance can be improved and could possibly be used for multiple IMUs simultaneously. Judge the performance for yourself:
 
 <h3 align="center"><a href="https://menglinmaker-imu-webserial-visualiser.netlify.app/">Live Demo!</a></h3>
 
