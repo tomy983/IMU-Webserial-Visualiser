@@ -1,7 +1,7 @@
 # IMU webserial visualiser
-IMU visualiser using [quaternions](https://en.wikipedia.org/wiki/Quaternion) in [w, i, j, k] format. This arduino code for extracting BNO080 data can be found in the ["ESP32" folder](). The code for USB and wireless streaming of data can  be found in: https://github.com/MengLinCoding/ESP32-data-stream-comparisons.
+IMU visualiser using [quaternions](https://en.wikipedia.org/wiki/Quaternion) in [w, i, j, k] format. The ESP32 code for extracting BNO080 data can be found in the ["Bno080-examples" folder](https://github.com/MengLinMaker/IMU-webserial-visualiser/tree/main/Bno080-examples).
 
-Made using Three.js, which is a WebGL wrapper, and the experimental Web Serial API. The program is created using Vite. Overall the data streaming and animation performance is capable of supporting multiple IMUs simultaneously. Judge the performance for yourself:
+Made using Three.js, which is a WebGL wrapper, and the experimental Web Serial API. An ESP32 microctontroller interfaces with BNO080 IMU and streams data to the website. Data streaming test codes can be found [here](https://github.com/MengLinCoding/ESP32-data-stream-comparisons). Finally, the website is built using [Vite](https://vitejs.dev/) and uploaded to [Netlify](https://www.netlify.com/). Overall the data streaming and animation performance is capable of supporting multiple IMUs simultaneously. Judge the performance for yourself:
 
 <h3 align="center"><a href="https://menglinmaker-imu-webserial-visualiser.netlify.app/">Live Demo!</a></h3>
 
