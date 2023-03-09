@@ -22,3 +22,5 @@ Note: Choose a reasonable value for CSV buffer size: under 10^6.
 This code was modified from Mike Molinari's serialTerminal.com: https://github.com/mmiscool/serialTerminal.com
 Reskinned UI and refactored the original code. Added ability to save CSV file and determine last full line, stored in "currentData".
 Access the original webserial terminal here: https://www.serialterminal.com
+
+<img src="https://img.shields.io/github/forks/menglinmaker/IMU-Webserial-Visualiser?label=forks&style=flat-square">
