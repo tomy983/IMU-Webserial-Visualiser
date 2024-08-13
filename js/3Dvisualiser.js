@@ -87,7 +87,7 @@ plane.receiveShadow = true;
 
 // Defining geometries
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader'
-import cubeUrl from '../asset/xyzCalibrationCube.stl?url'
+import cubeUrl from '../asset/BNO086 brakeout.stl?url'
 const loader = new STLLoader();
 let IMUcube;
 loader.load(
